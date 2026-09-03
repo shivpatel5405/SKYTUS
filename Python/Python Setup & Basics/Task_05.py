@@ -1,0 +1,9 @@
+# Ask the user their birth year and  calculate their current age
+
+birthyear=float(input("Enter your birthyear : "))
+
+currerntyear=2026
+
+currerntyear -= birthyear
+
+print(f"The current age of the user is : {currerntyear}")
