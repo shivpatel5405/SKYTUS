@@ -5,4 +5,4 @@ breadth=float(input("Enter the Breadth of the rectangle : "))
 
 area = Lenght*breadth
 
-print(f"The area of the rectangle is : {area}")
+print("The area of the rectangle is :",area)

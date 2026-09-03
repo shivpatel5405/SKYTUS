@@ -6,4 +6,4 @@ currerntyear=2026
 
 currerntyear -= birthyear
 
-print(f"The current age of the user is : {currerntyear}")
+print("The current age of the user is :", currerntyear)

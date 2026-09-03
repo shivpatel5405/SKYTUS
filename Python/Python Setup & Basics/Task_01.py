@@ -4,4 +4,4 @@ name = input("Enter your name : ")
 age  = int(input("Enter your age : "))
 city = input("Enter your City : ")
 
-print(f"Hello ! I am {name}; I am {age} years old ; My city is : {city}")
+print("Hello ! I am " + name + "; I am " + age + " years old ; My city is : " + city)
