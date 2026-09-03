@@ -1,4 +1,4 @@
-# Check if two entered number are equal
+# Check if two entered numbers are equal
 
 num1 = int(input("Enter the number-1 : "))
 num2 = int(input("Enter the number-2 : "))
