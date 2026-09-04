@@ -3,10 +3,10 @@
 a = int(input("Enter the number-1 : "))
 b = int(input("Enter the number-2 : "))
 
-print(f"Before swapping : a = {a} , b = {b}")
+print("Before swapping : a =", a, ", b =", b)
 
 temp = a
 a = b
 b = temp
 
-print(f"After swapping: a = {a} , b = {b}") 
+print("After swapping: a =", a, ", b =", b)
