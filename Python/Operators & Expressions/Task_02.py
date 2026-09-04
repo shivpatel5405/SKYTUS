@@ -3,6 +3,6 @@
 num=int(input("Enter the number : "))
 
 if num%2==0:
-    print(f"{num} is an even")
+    print(num, "is an even")
 else:
-    print(f"{num} is a odd")
+    print(num, "is a odd")
