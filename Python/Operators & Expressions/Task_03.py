@@ -1,4 +1,4 @@
-#Compare two number and print the largest one 
+#Compare two numbers and print the largest one 
 
 num1=int(input("Enter the number-1 : "))
 num2=int(input("Enter the number-2 : "))

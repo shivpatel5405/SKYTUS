@@ -4,5 +4,5 @@ num = int(input("Enter a nmuber : "))
 Square = num*num
 Cube = num**3
 
-print(f"The square of a {num} is : {Square}")
-print(f"The cube of a {num} is : {Cube}")
+print("The square of a number is : ", Square)
+print("The cube of number is : " , Cube)
