@@ -1,4 +1,4 @@
-#Take user input for two number and print their sum
+#Take user input for two number and Print their sum
 
 a = int(input ("Enter the value for number-1: "))
 b = int(input("Enter the value for number-2: "))
