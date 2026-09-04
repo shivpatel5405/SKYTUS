@@ -4,6 +4,6 @@ birthyear=float(input("Enter your birthyear : "))
 
 currerntyear=2026
 
-currerntyear -= birthyear
+currerntyear = currerntyear - birthyear
 
 print("The current age of the user is :", currerntyear)
