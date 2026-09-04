@@ -1,4 +1,4 @@
-# write a program to print your name , age and city in one line 
+# write a program to print your name , Age and City in one line 
 
 name = input("Enter your name : ")
 age  = int(input("Enter your age : "))
