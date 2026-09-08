@@ -7,7 +7,7 @@ print(f"Third element of the tuple: {numbers[2]}", "\n")
 
 # Task 3 : Unpack the tuple into seperate variables
 a, b, c, d, e = numbers
-print(f"Unpacked values: {a}, {b}, {c}, {d}, {e}", "\n") 
+print(f"Unpacked values: a = {a}, b = {b}, c = {c}, d = {d}, e = {e}", "\n") 
 
 # Task 4 : Create a set of 5 unique numbers
 numbers = {1, 2, 3, 4, 5, 5, 4, 3}
