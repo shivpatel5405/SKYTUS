@@ -1,7 +1,7 @@
 # Task 1: create a dictionary storing student name and marks
 student_marks = {
-    "John": 85,
-    "Alice": 92,
+    "Akash": 85,
+    "Ansh": 92,
     "Bob": 78
 }
 print(f"Dictionary of student marks: {student_marks}", "\n")
