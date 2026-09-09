@@ -3,7 +3,7 @@ def is_prime(num):
     if num <= 1:
         return False
     
-    for i in range(2, int(num**0.5) + 1): # formula to check prime number
+    for i in range(2, int(num**0.5) + 1): # Check possible divisors up to the square root
         if num % i == 0:
             return False
     return True
