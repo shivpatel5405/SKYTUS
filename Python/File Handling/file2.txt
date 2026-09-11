@@ -1,0 +1,5 @@
+Python3is a basic language for automation
+Python3is a programmisg language
+Python3is important for AI/ML 
+Python3 is dynamic and isterpretable
+Python3is used is Data Science
