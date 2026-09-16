@@ -1,0 +1,3 @@
+2026-09-15 14:05:32,163 - ERROR - Invalid input: invalid literal for int() with base 10: ''
+2026-09-15 14:05:40,216 - ERROR - Cannot divide by zero: division by zero
+ERROR:root:Cannot divide by zero.
