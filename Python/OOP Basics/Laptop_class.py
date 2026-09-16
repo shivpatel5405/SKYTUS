@@ -10,7 +10,7 @@ class Laptop:
         discount_amount = self.price * (discount_percentage / 100)
         self.price -= discount_amount
         print(f"Applied {discount_percentage}% discount. Saved: {discount_amount}")
-        print(f"Discounted Price: {self.price}")
+        print(f"After Discount The Price is: {self.price}")
 
     def display_details(self):
         print(f"Brand: {self.brand}")
