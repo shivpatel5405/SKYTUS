@@ -1,4 +1,4 @@
-# Create a Student class with a method to calculate average marks
+# Create a Student class with a method to calculate average marks.
 
 class Student:
     def __init__(self, name, marks):
