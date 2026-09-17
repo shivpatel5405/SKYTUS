@@ -10,8 +10,8 @@ Python provides several file modes such as read, write, and append.
 
 Learning Python regularly helps improve programming and problem-solving skills.
 
-Python3is a basic language for automation
-Python3is a programmisg language
-Python3is important for AI/ML 
-Python3 is dynamic and isterpretable
-Python3is used is Data Science
+Enter sentence 1: python is very easy language 
+Enter sentence 2: python is Dynamic and portable
+Enter sentence 3: python is used in AI/ML
+Enter sentence 4: python is used in Data Science
+Enter sentence 5: python interprets the code line by line

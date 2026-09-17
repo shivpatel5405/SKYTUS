@@ -53,7 +53,7 @@ with open("file.txt", "r") as file:
 
 # Task 7:Write a Program to replace a specific word in a file
 
-old_word = input("Enter the word to replace: ")
+old_word = input("\nEnter the word to replace: ")
 new_word = input("Enter the new word: ")
 
 with open("file2.txt", "r") as file:
