@@ -9,3 +9,4 @@ if num >= 0:
     print(f"The factorial of {num} is: {result}")
 else:
     print("Factorial is not defined for negative numbers.")
+    
