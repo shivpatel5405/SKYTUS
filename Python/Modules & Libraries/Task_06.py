@@ -8,8 +8,8 @@ radius = float(input("Enter radius of the circle: "))
 print(f"Area of Circle: {circle.area(radius):.2f}")
 print(f"Perimeter of Circle: {circle.perimeter(radius):.2f}")
 
-print("\n--- Rectangle Operations ---")
 # Rectangle operations
+print("\n--- Rectangle Operations ---")
 length = float(input("Enter length of the rectangle: "))
 width = float(input("Enter width of the rectangle: "))
 print(f"Area of Rectangle: {rectangle.area(length, width):.2f}")
