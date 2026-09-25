@@ -90,7 +90,7 @@ def display_welcome():
     print("|     * PROGRAMMING LANGUAGE QUIZ GAME *         |")
     print("|                                                |")
     print("|   Test your coding knowledge and win points!   |")
-    print("|   Use lifelines wisely. Build streaks!         |")
+    print("|   Answer fast and build streaks!               |")
     print("|                                                |")
     print("=" * 50)
     print()
@@ -138,30 +138,11 @@ def show_categories():
         return cat_name, cat_questions
 
 
-def use_5050(options, answer):
-    """Remove 2 wrong options (50-50 lifeline)."""
-    wrong_options = []
-    for opt in options:
-        if not opt.startswith(answer + ")"):
-            wrong_options.append(opt)
 
-    # Pick 2 wrong ones to remove
-    remove = random.sample(wrong_options, 2)
-
-    remaining = []
-    for opt in options:
-        if opt in remove:
-            remaining.append("   --removed--")
-        else:
-            remaining.append(opt)
-
-    return remaining
-
-
-def ask_question(q_number, total, q_data, has_5050, streak):
+def ask_question(q_number, total, q_data, streak):
     """
     Display a question and get the answer.
-    Returns: (is_correct, used_5050, time_taken)
+    Returns: (is_correct, time_taken)
     """
     print(f"  [{q_data['category']}]")
     print(f"  Question {q_number} of {total}")
@@ -171,32 +152,14 @@ def ask_question(q_number, total, q_data, has_5050, streak):
     print(f"  {q_data['question']}")
     print()
 
-    options = list(q_data["options"])  # make a copy
-    used_5050 = False
-
-    for opt in options:
+    for opt in q_data["options"]:
         print(f"    {opt}")
 
     print()
-    if has_5050:
-        print("  (Type '50' to use your 50-50 lifeline)")
-
     start_time = time.time()
 
     while True:
         answer = input("  Your answer: ").lower().strip()
-
-        # 50-50 lifeline (can only be used once)
-        if answer == "50" and has_5050 and not used_5050:
-            used_5050 = True
-            options = use_5050(options, q_data["answer"])
-            print()
-            print("  ** 50-50 Lifeline Used! **")
-            print()
-            for opt in options:
-                print(f"    {opt}")
-            print()
-            continue
 
         if answer in ["a", "b", "c", "d"]:
             break
@@ -208,7 +171,7 @@ def ask_question(q_number, total, q_data, has_5050, streak):
 
     is_correct = (answer == q_data["answer"])
 
-    return is_correct, used_5050, time_taken
+    return is_correct, time_taken
 
 
 def show_feedback(is_correct, q_data, time_taken, points_earned):
@@ -305,21 +268,17 @@ def play_quiz():
         correct_count = 0
         streak = 0
         streak_best = 0
-        has_5050 = True   # one lifeline per game
         total_time = 0
 
         # Ask each question
         for i in range(num):
             print("-" * 50)
-            is_correct, used_5050, time_taken = ask_question(
-                i + 1, num, selected_questions[i], has_5050, streak
+            is_correct, time_taken = ask_question(
+                i + 1, num, selected_questions[i], streak
             )
 
-            if used_5050:
-                has_5050 = False  # used up
-
             total_time += time_taken
-
+        
             # Calculate points
             if is_correct:
                 correct_count += 1
