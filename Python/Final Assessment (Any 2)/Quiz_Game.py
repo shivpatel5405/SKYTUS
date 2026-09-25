@@ -3,8 +3,6 @@
 import random
 import time
 
-# ---------- Question Bank (by Category) ----------
-
 questions = {
     "Python": [
         {"question": "Who created the Python programming language?",
