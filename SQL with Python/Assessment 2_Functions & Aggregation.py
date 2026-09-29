@@ -52,5 +52,3 @@ cursor.execute("""
 for dept, avg_marks in cursor.fetchall():
     print(f"Department: {dept} -> Average Marks: {avg_marks}")
 print()
-
-conn.close()
