@@ -6,11 +6,11 @@ cursor = conn.cursor()
 
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS students (
-        student_id INTEGER PRIMARY KEY,
-        name TEXT,
-        department TEXT,
-        year INTEGER,
-        marks INTEGER
+        student_id INT PRIMARY KEY,
+        name VARCHAR(50),
+        department VARCHAR(30),
+        year INT,
+        marks INT
     )
 """)
 students_data = [
