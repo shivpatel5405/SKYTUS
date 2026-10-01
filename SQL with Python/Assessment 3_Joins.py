@@ -2,7 +2,6 @@ import sqlite3
 from pathlib import Path
 
 conn = sqlite3.connect("Company_db")
-# Use db_path so it connects to the database in the same directory
 db_path = Path(__file__).parent / "Company_db"
 
 conn = sqlite3.connect(db_path)
