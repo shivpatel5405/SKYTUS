@@ -16,24 +16,4 @@ B) `WHERE ... EXISTS ( ... )"
 
 Answer: B) WHERE ... EXISTS (...)
 
-Part 2: Practical Coding (Multi-Table Analysis)
-*Use the `school schema .*
-
-4. Basic Join: Write a query to list the 'title' of all courses and the 'name` of the teacher teaching them.
-Answer: SELECT c.title, t.name
-        FROM courses c
-        INNER JOIN teachers t
-        ON c.teacher_id = t.teacher_id;
-
-5. Finding Mismatches: Write a query to list the names of all teachers who have not been assigned to a department.
-Answer : SELECT t.name
-        FROM teachers t
-        LEFT JOIN departments d
-        ON t.dept_id = d.dept_id
-        WHERE d.dept_id IS NULL;
-
-6. Aggregation: Write a query to display the 'dept_id' and the total number of teachers in each department.
-Answer: SELECT dept_id, COUNT(*) AS total_teachers
-        FROM teachers
-        GROUP BY dept_id;
         
