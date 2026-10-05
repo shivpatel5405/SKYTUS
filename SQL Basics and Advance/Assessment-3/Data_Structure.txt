@@ -1,0 +1,63 @@
+SQL ASSESSMENT 3
+Database Administration, Design & Automation
+
+
+Q1. What is a View in SQL?
+
+Answer:
+A View is a virtual table created from the result of a SQL query.
+It does not normally store the actual data itself. A View can be
+used to simplify complex queries and provide controlled access
+to data.
+
+Example:
+
+CREATE VIEW active_students AS
+SELECT *
+FROM students
+WHERE is_active = TRUE;
+
+
+Q2. What is an Index in SQL?
+
+Answer:
+An Index is a database structure used to make searching and
+retrieving data faster. It is commonly created on columns that
+are frequently used in WHERE, JOIN, or ORDER BY clauses.
+
+Example:
+
+CREATE INDEX idx_student_email
+ON students(email);
+
+
+Q3. What does ACID stand for? Explain Atomicity.
+
+Answer:
+ACID stands for:
+
+A - Atomicity
+C - Consistency
+I - Isolation
+D - Durability
+
+Atomicity means that a transaction is treated as a single unit.
+Either all operations in the transaction are completed successfully,
+or none of them are applied.
+
+Example:
+
+START TRANSACTION;
+
+UPDATE accounts
+SET balance = balance - 500
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 500
+WHERE id = 2;
+
+COMMIT;
+
+If an error occurs before COMMIT, ROLLBACK can be used to undo
+the transaction.
