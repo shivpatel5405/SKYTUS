@@ -1,0 +1,32 @@
+1. Data Types: You are storing currency values for financial transactions in the teachers` table. Which data type is most appropriate to avoid
+floating-point errors?
+B) DOUBLE
+C) DECIMAL(10,2)
+D) VARCHAR(10)
+
+Answer: C) DECIMAL(10,2)
+
+2. Constraints: You want to ensure that the 'email' column in the 'students' table contains a value for every record, but two students can have the
+same email. Which constraint do you use?
+A) PRIMARY KEY
+B) UNIQUE
+C) NOT NULL
+D) CHECK
+
+Answer: C) NOT NULL
+
+3. Filtering: Which operator is used to select rows that match a value within a specific list (e.g., Department IDs 1, 3, and 5)?
+A) BETWEEN
+B) LIKE
+C) IN
+D) EXISTS
+
+Answer: C) IN
+
+4. Pattern Matching: Write the 'WHERE' clause to find all students whose last name starts with the letter 'S'.
+Answer : WHERE last_name LIKE 'S%' ;
+
+5. NULL Handling: Why does the query `SELECT * FROM students WHERE email = NULL' return zero rows?
+Answer : Because NULL does not represent an actual value. It represents a missing or unknown value.
+query :- SELECT * FROM students
+         WHERE email IS NULL;
