@@ -66,3 +66,4 @@ cursor.execute("""
 
 for employee in cursor.fetchall():
     print(employee)
+    
