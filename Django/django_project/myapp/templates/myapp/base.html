@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,74 +7,10 @@
 
     <title>{% block title %}BookShelf{% endblock %}</title>
 
+    <!-- Assessment 4 : Q3 — External stylesheet linked via {% static %} -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <style>
-        /* ===== GLOBAL RESET & BASE STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #f4f6fb;
-            color: #1e293b;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            background: #ffffff;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: 800;
-            color: #4f46e5;
-            text-decoration: none;
-        }
-
-        .nav-label {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #4338ca, #7c3aed);
-            color: white;
-            padding: 55px 8%;
-        }
-
-        .hero h1 {
-            font-size: clamp(30px, 5vw, 44px);
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            color: #e0e7ff;
-            font-size: 16px;
-            line-height: 1.7;
-            max-width: 600px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 15px;
-            color: #64748b;
-            font-size: 13px;
-            border-top: 1px solid #e5e7eb;
-            background: white;
-        }
-
-        @media (max-width: 600px) {
-            .navbar { padding: 18px 6%; }
-            .hero { padding: 40px 6%; }
-        }
-
         /* ===== CHILD TEMPLATE STYLES ===== */
         {% block extra_css %}{% endblock %}
     </style>

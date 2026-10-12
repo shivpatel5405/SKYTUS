@@ -119,6 +119,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Assessment 4 :- Question 3 — Static File Asset Linking
+# Tells Django where to look for static files (project-level)
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',        # Project-level static directory
+]
+
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
