@@ -218,10 +218,10 @@
     <main class="container">
 
         <div class="section-header">
-            <h2>Our Book Collection</h2>
+            <h2>{{ heading }}</h2>
 
             <span class="book-count">
-                {{ books|length }} Book{{ books|length|pluralize }}
+                {{ total_books }} Book{{ total_books|pluralize }}
             </span>
         </div>
 

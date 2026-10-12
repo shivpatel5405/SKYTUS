@@ -39,4 +39,12 @@ class BookCreateView(CreateView):
     model = Book                                    # Which model to create
     fields = ['title', 'author']                    # Which fields to show in the form
     template_name = 'myapp/book_form.html'          # Which template to render
-    success_url = reverse_lazy('book_list')         # Redirect to book list after successful submission
+    success_url = reverse_lazy('book_list')         # Redirect to book list after successful submission  
+
+
+ # Assessment 3 :- Question 4 — Context Customization
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)  # Get the default context (includes 'books')
+        context['total_books'] = Book.objects.count() # Add total count of books
+        context['heading'] = 'Our Book Collection'    # Add a dynamic heading
+        return context
