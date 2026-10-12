@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path
 
 
-from myapp.views import home , student_detail , BookListView
+from myapp.views import home , student_detail , BookListView , BookCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),                                         # make a path for empty url
     path('student/<int:student_id>/', student_detail),     # adding dynamic url
     path('books/',BookListView.as_view(),name="book_list"),# CBV needs .as_view()
+    path('books/add/',BookCreateView.as_view(),name="book_create"), # Q3: Add a book
     
 ]

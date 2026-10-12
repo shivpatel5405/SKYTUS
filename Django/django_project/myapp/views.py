@@ -24,9 +24,19 @@ from .models import Book
 
 
 # Assessment 3 :- Question 2 — Generic ListView Conversion (CBV)
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 
 class BookListView(ListView):
     model = Book                                    # Which model to query
     template_name = 'myapp/book_list.html'          # Which template to render
     context_object_name = 'books'                   # Variable name in template (matches FBV)
+
+
+# Assessment 3 :- Question 3 — Form Creation & Redirects (CreateView)
+
+class BookCreateView(CreateView):
+    model = Book                                    # Which model to create
+    fields = ['title', 'author']                    # Which fields to show in the form
+    template_name = 'myapp/book_form.html'          # Which template to render
+    success_url = reverse_lazy('book_list')         # Redirect to book list after successful submission
