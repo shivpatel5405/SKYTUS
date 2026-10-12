@@ -26,6 +26,8 @@ from .models import Book
 # Assessment 3 :- Question 2 — Generic ListView Conversion (CBV)
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 class BookListView(ListView):
     model = Book                                    # Which model to query
@@ -35,7 +37,7 @@ class BookListView(ListView):
 
 # Assessment 3 :- Question 3 — Form Creation & Redirects (CreateView)
 
-class BookCreateView(CreateView):
+class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book                                    # Which model to create
     fields = ['title', 'author']                    # Which fields to show in the form
     template_name = 'myapp/book_form.html'          # Which template to render
