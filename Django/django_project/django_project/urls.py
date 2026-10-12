@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 
-from myapp.views import home      
-from myapp.views import student_detail
+from myapp.views import home , student_detail , book_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),                                         # make a path for empty url
-    path('student/<int:student_id>/', student_detail),     # adding dynamic url 
+    path('student/<int:student_id>/', student_detail),     # adding dynamic url
+    path('books/',book_list,name="book_list"),             # make a path for book view
+    
 ]

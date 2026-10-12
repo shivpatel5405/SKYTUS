@@ -10,3 +10,13 @@ def home(request):
 
 def student_detail(request, student_id):
     return HttpResponse(f"Student ID is: {student_id}")
+
+
+# Assessment 3 :- Question 1 — Function-Based Views (FBV)
+from .models import Book
+
+def book_list(request):
+    books = Book.objects.all()
+    return render(request, 'myapp/book_list.html', {
+        'books': books
+    })
