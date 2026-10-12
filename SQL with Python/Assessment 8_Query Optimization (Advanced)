@@ -1,0 +1,70 @@
+import sqlite3
+from pathlib import Path
+
+# Connect to the existing E-Commerce database
+db_path = Path(__file__).parent / "ECommerce.db"
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
+
+# 1. Add an index on orders.customer_id
+cursor.execute("""
+    CREATE INDEX IF NOT EXISTS idx_orders_customer_id
+    ON orders(customer_id)
+""")
+conn.commit()
+
+print("1. Index created on orders.customer_id")
+
+
+# 2. Use EXPLAIN QUERY PLAN to analyze a query
+print("\n2. Query execution plan:")
+
+query = """
+    SELECT order_id, customer_id, order_date, amount
+    FROM orders
+    WHERE customer_id = 1
+"""
+
+cursor.execute("EXPLAIN QUERY PLAN " + query)
+
+for row in cursor.fetchall():
+    print(row)
+
+
+# 3. Optimize a join query
+print("\n3. Optimized join query:")
+
+query = """
+    SELECT c.name, o.order_id, o.order_date, o.amount
+    FROM customers c
+    JOIN orders o
+        ON c.customer_id = o.customer_id
+    WHERE o.customer_id = ?
+    ORDER BY o.order_date DESC
+"""
+
+cursor.execute(query, (1,))
+
+for row in cursor.fetchall():
+    print(row)
+
+
+# Analyze the optimized join query
+print("\nExecution plan for the join:")
+
+cursor.execute("EXPLAIN QUERY PLAN " + query, (1,))
+
+for row in cursor.fetchall():
+    print(row)
+
+
+# 4. Display indexes on the orders table
+print("\n4. Indexes on orders table:")
+
+cursor.execute("PRAGMA index_list('orders')")
+
+for row in cursor.fetchall():
+    print(row)
+
+
+conn.close()
