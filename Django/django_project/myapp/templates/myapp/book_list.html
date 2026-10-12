@@ -1,4 +1,5 @@
 {% extends 'myapp/base.html' %}
+{% load custom_filters %}
 
 {% block title %}Book Library | Django{% endblock %}
 
@@ -160,12 +161,12 @@
                         </div>
 
                         <h3 class="book-title">
-                            {{ book.title }}
+                            {{ book.title|truncate_words:5 }}
                         </h3>
 
                         <p class="book-author">
                             <span class="author-label">Author:</span>
-                            {{ book.author }}
+                            {{ book.author|highlight_author }}
                         </p>
 
                     </article>
