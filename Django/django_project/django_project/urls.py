@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
 from myapp.views import home      
+from myapp.views import student_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home)                       # make a path for empty url
+    path('',home),                                         # make a path for empty url
+    path('student/<int:student_id>/', student_detail),     # adding dynamic url 
 ]
