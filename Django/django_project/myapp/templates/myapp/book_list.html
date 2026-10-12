@@ -1,221 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'myapp/base.html' %}
 
-    <title>Book Library | Django</title>
+{% block title %}Book Library | Django{% endblock %}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+{% block hero_title %}Discover Your Next Read.{% endblock %}
 
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #f4f6fb;
-            color: #1e293b;
-            min-height: 100vh;
-        }
+{% block hero_subtitle %}
+    Explore your book collection, discover new knowledge,
+    and keep your favorite reads organized in one place.
+{% endblock %}
 
-        .navbar {
-            background: #ffffff;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
+{% block extra_css %}
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 35px 24px 60px;
+    }
 
-        .logo {
-            font-size: 23px;
-            font-weight: 800;
-            color: #4f46e5;
-        }
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
 
-        .nav-label {
-            color: #64748b;
-            font-size: 14px;
-        }
+    .section-header h2 {
+        font-size: 25px;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #4338ca, #7c3aed);
-            color: white;
-            padding: 55px 8%;
-        }
+    .book-count {
+        background: #e0e7ff;
+        color: #4338ca;
+        padding: 8px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
 
-        .hero h1 {
-            font-size: clamp(30px, 5vw, 44px);
-            margin-bottom: 12px;
-        }
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 24px;
+    }
 
-        .hero p {
-            color: #e0e7ff;
-            font-size: 16px;
-            line-height: 1.7;
-            max-width: 600px;
-        }
+    .book-card {
+        background: #ffffff;
+        border: 1px solid #e8eaf0;
+        border-radius: 16px;
+        padding: 24px;
+        transition: transform 0.25s ease,
+                    box-shadow 0.25s ease;
+    }
 
+    .book-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(30, 41, 59, 0.09);
+    }
+
+    .book-icon {
+        width: 64px;
+        height: 76px;
+        background: linear-gradient(145deg, #e0e7ff, #ede9fe);
+        border-radius: 8px 12px 12px 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        margin-bottom: 22px;
+        box-shadow: inset 5px 0 0 #a5b4fc;
+    }
+
+    .book-id {
+        color: #818cf8;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .book-title {
+        font-size: 19px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .book-author {
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .author-label {
+        color: #334155;
+        font-weight: 600;
+    }
+
+    .empty-state {
+        background: white;
+        border: 1px dashed #cbd5e1;
+        border-radius: 16px;
+        text-align: center;
+        padding: 55px 20px;
+    }
+
+    .empty-icon {
+        font-size: 45px;
+        margin-bottom: 15px;
+    }
+
+    .empty-state h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .empty-state p {
+        color: #64748b;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 35px 24px 60px;
+            padding: 28px 18px 45px;
         }
 
         .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            align-items: flex-start;
+            flex-direction: column;
         }
+    }
+{% endblock %}
 
-        .section-header h2 {
-            font-size: 25px;
-        }
-
-        .book-count {
-            background: #e0e7ff;
-            color: #4338ca;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 24px;
-        }
-
-        .book-card {
-            background: #ffffff;
-            border: 1px solid #e8eaf0;
-            border-radius: 16px;
-            padding: 24px;
-            transition: transform 0.25s ease,
-                        box-shadow 0.25s ease;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(30, 41, 59, 0.09);
-        }
-
-        .book-icon {
-            width: 64px;
-            height: 76px;
-            background: linear-gradient(145deg, #e0e7ff, #ede9fe);
-            border-radius: 8px 12px 12px 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            margin-bottom: 22px;
-            box-shadow: inset 5px 0 0 #a5b4fc;
-        }
-
-        .book-id {
-            color: #818cf8;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .book-title {
-            font-size: 19px;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            overflow-wrap: anywhere;
-        }
-
-        .book-author {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.6;
-            overflow-wrap: anywhere;
-        }
-
-        .author-label {
-            color: #334155;
-            font-weight: 600;
-        }
-
-        .empty-state {
-            background: white;
-            border: 1px dashed #cbd5e1;
-            border-radius: 16px;
-            text-align: center;
-            padding: 55px 20px;
-        }
-
-        .empty-icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .empty-state h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .empty-state p {
-            color: #64748b;
-            line-height: 1.7;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 15px;
-            color: #64748b;
-            font-size: 13px;
-            border-top: 1px solid #e5e7eb;
-            background: white;
-        }
-
-        @media (max-width: 600px) {
-            .navbar {
-                padding: 18px 6%;
-            }
-
-            .hero {
-                padding: 40px 6%;
-            }
-
-            .container {
-                padding: 28px 18px 45px;
-            }
-
-            .section-header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <nav class="navbar">
-        <div class="logo">📚 BookShelf</div>
-        <div class="nav-label">Your Digital Library</div>
-    </nav>
-
-    <header class="hero">
-        <h1>Discover Your Next Read.</h1>
-        <p>
-            Explore your book collection, discover new knowledge,
-            and keep your favorite reads organized in one place.
-        </p>
-    </header>
-
-    <main class="container">
+{% block content %}
+    <div class="container">
 
         <div class="section-header">
             <h2>{{ heading }}</h2>
@@ -266,11 +186,5 @@
             </section>
         {% endif %}
 
-    </main>
-
-    <footer>
-        Built with Django · BookShelf Library system
-    </footer>
-
-</body>
-</html>
+    </div>
+{% endblock %}

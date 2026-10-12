@@ -42,7 +42,7 @@ class BookCreateView(CreateView):
     success_url = reverse_lazy('book_list')         # Redirect to book list after successful submission  
 
 
- # Assessment 3 :- Question 4 — Context Customization
+    # Assessment 3 :- Question 4 — Context Customization
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)  # Get the default context (includes 'books')
         context['total_books'] = Book.objects.count() # Add total count of books
